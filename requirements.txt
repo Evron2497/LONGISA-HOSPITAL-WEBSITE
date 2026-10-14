@@ -1,0 +1,11 @@
+streamlit
+sqlalchemy
+mysql-connector-python
+pandas
+plotly
+reportlab
+qrcode
+Pillow
+streamlit-authenticator
+PyJWT
+python-dotenv
