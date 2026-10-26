@@ -30,8 +30,19 @@ def get_local_svg_base64(filepath):
     return "https://cdn-icons-png.flaticon.com/512/3063/3063189.png"
 
 # Use exact local path
-local_logo_path = r"C:\Users\Hi\Downloads\government-of-kenya-emblem-gok-vector-logo-seeklogo\government-of-kenya-emblem-gok-seeklogo.svg"
-logo_base64 = get_local_svg_base64(local_logo_path)
+# local_logo_path = r"C:\Users\Hi\Downloads\government-of-kenya-emblem-gok-vector-logo-seeklogo\government-of-kenya-emblem-gok-seeklogo.svg"
+# logo_base64 = get_local_svg_base64(local_logo_path)
+import requests
+
+# Your Render website URL
+logo_url = "https://longisa-hospital-website.onrender.com/government-of-kenya-emblem-gok-seeklogo.svg"
+
+response = requests.get(logo_url, timeout=30)
+response.raise_for_status()
+
+logo_base64 = base64.b64encode(response.content).decode("utf-8")
+
+print("Logo loaded successfully!")
 
 # Default Fallbacks
 DEFAULT_NEWS_IMG = "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=600"
